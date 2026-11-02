@@ -1,9 +1,18 @@
-trigger: none
+trigger:
+- main
 
 pool:
   vmImage: ubuntu-latest
 
+resources:
+  repositories:
+  - repository: templates
+    type: github
+    name: saketmdb1/devops-templates
+    endpoint: saketmdb1
+    ref: refs/heads/main
+
 steps:
-- template: templates/build.yml
+- template: templates/build.yml@templates
   parameters:
-    appName: payments-api
+    appName: orders-api
