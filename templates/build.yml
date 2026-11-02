@@ -1,0 +1,21 @@
+parameters:
+- name: appName
+  type: string
+  default: my-application
+
+steps:
+
+- script: |
+    echo "================================"
+    echo "Application: ${{ parameters.appName }}"
+    echo "Starting application build"
+    echo "================================"
+  displayName: Build application
+
+- script: |
+    echo "Running tests for ${{ parameters.appName }}"
+  displayName: Run application tests
+
+- script: |
+    echo "Build completed successfully"
+  displayName: Build summary

@@ -1,0 +1,11 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- template: templates/build.yml
+  parameters:
+    appName: orders-api
