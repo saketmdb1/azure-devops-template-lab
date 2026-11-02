@@ -4,8 +4,15 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
+resources:
+  repositories:
+  - repository: templates
+    type: github
+    name: saketmdb1/devops-templates
+    endpoint: saketmdb1
+    ref: refs/heads/main
 
-- template: templates/build.yml
+steps:
+- template: templates/build.yml@templates
   parameters:
     appName: orders-api
